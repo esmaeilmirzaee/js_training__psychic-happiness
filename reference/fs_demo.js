@@ -15,3 +15,11 @@ fs.writeFile(
     console.log('File has been created.');
   }
 );
+
+fs.readFile(path.join(__dirname, '/test', 'hello.txt'), 'utf8', function (
+  err,
+  data
+) {
+  if (err) throw err;
+  console.log(data);
+});
