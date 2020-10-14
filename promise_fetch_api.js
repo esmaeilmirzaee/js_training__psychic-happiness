@@ -5,6 +5,7 @@ const randomUsers = (n) => {
   fetchUsers
     .then((data) => {
       data
+        .json()
         .then((user) => {
           console.log(user);
         })
