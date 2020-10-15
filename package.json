@@ -4,7 +4,8 @@
   "description": "",
   "main": "how_to_create_a_class.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node ./reference/index",
+    "dev": "nodemon ./reference/index"
   },
   "repository": {
     "type": "git",
@@ -20,5 +21,8 @@
   "dependencies": {
     "node-fetch": "^2.6.1",
     "uuid": "^8.3.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.5"
   }
 }
