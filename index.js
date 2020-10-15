@@ -13,6 +13,18 @@ const server = http.createServer((req, res) => {
       }
     );
   }
+
+  // Show About page
+  if (req.url === '/about') {
+    fs.readFile(
+      path.join(__dirname, 'public/html', 'about.html'),
+      (err, content) => {
+        if (err) throw err;
+        res.writeHead(200, { ContentType: 'text/html' });
+        res.end(content);
+      }
+    );
+  }
 });
 
 const port = process.env.PORT || 5000;
