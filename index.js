@@ -1,6 +1,7 @@
 const http = require('http');
 const path = require('path');
 const fs = require('fs');
+const fetch = require('node-fetch');
 
 const server = http.createServer((req, res) => {
   if (req.url === '/') {
@@ -24,6 +25,18 @@ const server = http.createServer((req, res) => {
         res.end(content);
       }
     );
+  }
+
+  if (req.url === '/api/user') {
+    const fetchUser = fetch('https://randomuser.me/api/?results=1');
+    res.writeHead(200, { ContentType: 'application/json' });
+    fetchUser
+      .then((data) => {
+        data.json().then((user) => {
+          res.end(JSON.stringify(user.results));
+        });
+      })
+      .catch((err) => console.log(err));
   }
 });
 
