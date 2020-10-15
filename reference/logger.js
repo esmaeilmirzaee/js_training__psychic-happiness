@@ -7,4 +7,11 @@ class Logger extends EventEmitter {
   }
 }
 
-module.exports = Logger;
+// Commented to use index.js
+// module.exports = Logger;
+
+// Files moved from index.js
+const Logger = require('./logger');
+const logger = new Logger();
+logger.on('message', (data) => console.log('Called listener', data));
+logger.log('Hello there');
