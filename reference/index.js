@@ -3,8 +3,10 @@ const path = require('path');
 const fs = require('fs');
 
 const server = http.createServer((req, res) => {
-  res.write(req.url);
-  res.end();
+  if (req.url === '/') {
+    res.writeHead(200, { ContentType: 'text/html' });
+    res.end('<h1>Home</h1>');
+  }
 });
 
 const port = process.env.PORT || 5000;
