@@ -4,8 +4,8 @@
   "description": "",
   "main": "how_to_create_a_class.js",
   "scripts": {
-    "start": "node ./reference/index",
-    "dev": "nodemon ./reference/index"
+    "start": "node ./index",
+    "dev": "nodemon ./index"
   },
   "repository": {
     "type": "git",

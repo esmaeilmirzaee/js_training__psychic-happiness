@@ -4,8 +4,14 @@ const fs = require('fs');
 
 const server = http.createServer((req, res) => {
   if (req.url === '/') {
-    res.writeHead(200, { ContentType: 'text/html' });
-    res.end('<h1>Home</h1>');
+    fs.readFile(
+      path.join(__dirname, '/public/html', 'index.html'),
+      (err, content) => {
+        if (err) throw err;
+        res.writeHead(200, { ContentType: 'text/html' });
+        res.end(content);
+      }
+    );
   }
 });
 
